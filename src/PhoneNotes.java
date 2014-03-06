@@ -5,7 +5,6 @@
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.TreeSet;
 import javax.swing.*;
@@ -25,8 +24,6 @@ public class PhoneNotes extends JFrame {
         }
         catch(Exception e) {
         }
-
-
 
         setSize(400, 250);
         Container c = getContentPane();
@@ -56,20 +53,20 @@ public class PhoneNotes extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 Person person = new Person(fldFio.getText().toString(), fldPhone.getText().toString());
                 SetOfPerson.add(person);
-                fldFio.setText("");
-                fldPhone.setText("");
+
             }
         });
         btn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
-
-                Iterator<Person> iter = SetOfPerson.iterator();
+                Iterator iter = SetOfPerson.iterator();
                 for (int i =0; iter.hasNext();i++){
                     System.out.println(iter.next().toString());
                 }
                 System.out.println(SetOfPerson.toString());
                 count++;
                 fldCnt.setText(String.valueOf(count));
+                fldFio.setText("");
+                fldPhone.setText("");
             }
         });
         WindowListener wndCloser = new WindowAdapter() {
